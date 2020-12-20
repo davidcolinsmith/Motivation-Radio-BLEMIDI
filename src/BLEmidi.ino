@@ -58,7 +58,13 @@ void maindisplay(void); // function prototype needed for BT connect and disconne
 
 // create display device
 #define OLED_RESET -1  // unused port - to keep the compiler happy
-Adafruit_SSD1306 display(OLED_RESET);
+//Adafruit_SSD1306 display(OLED_RESET);
+#define OLED_RESET -1  // sharing with reset pin
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 32
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
 
 struct SerialMIDISettings : public midi::DefaultSettings
 {

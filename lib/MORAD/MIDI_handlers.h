@@ -34,14 +34,14 @@
 // MIDI command handlers
 
 void HandleNoteOn(byte channel, byte note, byte velocity) {
-  /*
-  Serial.print("Serial Noteon ");
-  Serial.print(channel);
-   Serial.print(' ');  
-   Serial.print(note);
-   Serial.print(' ');  
-   Serial.println(velocity); 
-*/
+    // Enabling debug
+    Serial.print("Serial Noteon ");
+    Serial.print(channel);
+    Serial.print(' ');  
+    Serial.print(note);
+    Serial.print(' ');  
+    Serial.println(velocity); 
+
   // handle channels set up for note to CV 
   for( int i=0 ; i<(NUM_CV_OUTS);++i) {  // scan through CV configs
     if ((cvout[i].MIDIchannel==channel) && (cvout[i].type==NOTE_CV)) {  // see if MIDI channel matches and type is note to CV 

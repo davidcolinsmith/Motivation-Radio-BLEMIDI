@@ -95,24 +95,22 @@ public:
   }
 
 private:
+  bool doubleClickEnabled;
+  bool accelerationEnabled;
+  volatile int16_t delta;
+  volatile int16_t last;
+  volatile uint16_t acceleration;
+  volatile Button button;
+  uint16_t keyDownTicks = 0;
+  uint8_t doubleClickTicks = 0;
+  unsigned long lastButtonCheck = 0;
+  uint8_t steps;
   const uint8_t pinA;
   const uint8_t pinB;
   const uint8_t pinBTN;
   const bool pinsActive;
-  volatile int16_t delta;
-  volatile int16_t last;
-  uint8_t steps;
-  volatile uint16_t acceleration;
-  bool accelerationEnabled;
 #if ENC_DECODER != ENC_NORMAL
   static const int8_t table[16];
-#endif
-#ifndef WITHOUT_BUTTON
-  volatile Button button;
-  bool doubleClickEnabled;
-  uint16_t keyDownTicks = 0;
-  uint8_t doubleClickTicks = 0;
-  unsigned long lastButtonCheck = 0;
 #endif
 };
 
